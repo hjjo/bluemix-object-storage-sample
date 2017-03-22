@@ -1,0 +1,65 @@
+<html>
+<head>
+  <base href="/">
+  <title>Object Storage Sample</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/v18/css/www.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="content">
+  	<div class="controls">
+  		<div id="pkgcloud_switch">
+  			<label class="switch label">Use pkgcloud library</label>
+	  		<label class="switch">
+				  <input onchange="Controller.switchChange(this)" type="checkbox">
+				  <div class="slider round"></div>
+				</label>
+			</div>
+  		<button id="auth_btn" class="ibm-btn-small ibm-btn-sec ibm-btn-blue-50" onclick="Controller.authenticate()">Athenticate</button>
+  		<button class="ibm-btn-small ibm-btn-sec ibm-btn-blue-50" onclick="Controller.listContainers()">List Containers</button>
+  		<button class="ibm-btn-small ibm-btn-sec ibm-btn-blue-50" onclick="Controller.getContainerNameInput('create')">Create a Container</button>
+  		<button class="ibm-btn-small ibm-btn-sec ibm-btn-blue-50" onclick="Controller.getContainerNameInput('get')">List Objects</button>
+  		<button class="ibm-btn-small ibm-btn-sec ibm-btn-blue-50" onclick="Controller.getFileInput('get')">Upload an Object</button>
+  	</div>
+  	<div class="ibm-background-purple-70 result">
+  	</div>
+  </div>
+
+  <div class="ibm-common-overlay" data-widget="overlay" id="overlay_container_name">
+		<label for="container_name">Container Name:<span class="ibm-required">*</span></label>
+      <span>
+        <input type="text" value="" size="40" id="container_name" name="container_name">
+      </span>
+      <button class="ibm-btn-small ibm-btn-blue-50 ibm-btn-pri ibm-margin-top-1" type="button">OK</button>
+	</div>
+
+	<div class="ibm-common-overlay ibm-row-form" data-widget="overlay" id="overlay_object">
+		<form encType="multipart/form-data">
+			<div>
+				<label for="container_name">Container Name:<span class="ibm-required">*</span></label>
+	      <span>
+	        <input type="text" value="" size="40" id="container_name" name="container_name">
+	      </span>
+	    </div>
+	    <br />
+	    <div>
+				<label for="object">File attachment:</label>
+		    <span>
+		        <input id="object" type="file" data-widget="fileinput" data-multiple="false" />
+		    </span>
+		    <span class="ibm-item-note">Upload size limit (5 GB)</span>
+		  </div>
+	    <button class="ibm-btn-small ibm-btn-blue-50 ibm-btn-pri ibm-margin-top-1" type="button">OK</button>
+	  </form>
+	</div>
+
+	<script src="https://1.www.s81c.com/common/stats/ida_stats.js"></script>
+	<script src="https://1.www.s81c.com/common/v18/js/www.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/pkgcloud.js"></script>
+  <script src="js/controller.js"></script>
+</body>
+</html>
